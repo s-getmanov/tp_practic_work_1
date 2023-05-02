@@ -1,16 +1,121 @@
-//Задание 1.
-//Напишите программу, которая поочерёдно запрашивает у пользователя переменные различных типов, 
-//после чего выводит их все через пробел обратно в консоль. 
-//Обязательно использовать такие типы данных как int, double, char, bool, string. 
-//То есть, например, программа просит пользователя “Enter int: “, затем “Enter double: “ и так далее, 
-//а в конце выводит “You entered: 5 3.14 random_string “ и так далее.
+п»ї//Р—Р°РґР°РЅРёРµ 1.
+//РќР°РїРёС€РёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ, РєРѕС‚РѕСЂР°СЏ РїРѕРѕС‡РµСЂС‘РґРЅРѕ Р·Р°РїСЂР°С€РёРІР°РµС‚ Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїРµСЂРµРјРµРЅРЅС‹Рµ СЂР°Р·Р»РёС‡РЅС‹С… С‚РёРїРѕРІ, 
+//РїРѕСЃР»Рµ С‡РµРіРѕ РІС‹РІРѕРґРёС‚ РёС… РІСЃРµ С‡РµСЂРµР· РїСЂРѕР±РµР» РѕР±СЂР°С‚РЅРѕ РІ РєРѕРЅСЃРѕР»СЊ. 
+//РћР±СЏР·Р°С‚РµР»СЊРЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚Р°РєРёРµ С‚РёРїС‹ РґР°РЅРЅС‹С… РєР°Рє int, double, char, bool, string. 
+//РўРѕ РµСЃС‚СЊ, РЅР°РїСЂРёРјРµСЂ, РїСЂРѕРіСЂР°РјРјР° РїСЂРѕСЃРёС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ вЂњEnter int: вЂњ, Р·Р°С‚РµРј вЂњEnter double: вЂњ Рё С‚Р°Рє РґР°Р»РµРµ, 
+//Р° РІ РєРѕРЅС†Рµ РІС‹РІРѕРґРёС‚ вЂњYou entered: 5 3.14 random_string вЂњ Рё С‚Р°Рє РґР°Р»РµРµ.
 
 #include <iostream>
 
 using namespace std;
 
-int main{
+//РЎС‚СЂСѓРєС‚СѓСЂР° СЃ РїРѕР»СЏРјРё РЅСѓР¶РЅС‹С… С‚РёРїРѕРІ
 
-cout << "Hello!!";
+//Р¤СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РІРІРѕРґР°.
+// РћС€РёР±РєР° РІРІРѕРґР°, РµСЃР»Рё: 
+//- РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РІРІРµРґРµРЅРЅС‹С… РґР°РЅРЅС‹С… Рє РІС‹Р±СЂР°РЅРЅРѕРјСѓ С‚РёРїСѓ Р·Р°РєРѕРЅС‡РёР»РѕСЃСЊ СЃ РѕС€РёР±РєРѕР№
+//- РїРѕСЃР»Рµ СЃС‡РёС‚С‹РІР°РЅРёСЏ РѕСЃС‚Р°Р»РёСЃСЊ РґР°РЅРЅС‹Рµ РІ Р±СѓС„РµСЂРµ (РІРІРµРґРµРЅС‹ Р»РёС€РЅРёРµ СЃРёРјРІРѕР»С‹) 
+bool check_user_input() {
 
+    if (cin.fail())
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        return false;
+    }
+
+    if (cin.peek() != '\n') {
+
+        cin.clear();
+        cin.ignore(100, '\n');
+        return false;
+    };
+
+    return true;
+
+}
+
+//РџРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Рµ С„СѓРЅРєС†РёРё РІРІРѕРґР° Р·РЅР°С‡РµРЅРёСЏ СЃ РїСЂРѕРІРµСЂРєРѕР№ РІРІРµРґРµРЅРЅС‹С… РґР°РЅРЅС‹С…
+
+void inter_value (int& val ){
+
+    while (true) {
+        
+        cout << "Inter <int>: ";
+        cin >> val;
+
+        if (!check_user_input()) continue;
+             
+        break;
+    } 
+}
+
+void inter_value(double& val) {
+
+    while (true) {
+
+        cout << "Inter <double>: ";
+        cin >> val;
+
+        if (!check_user_input()) continue;
+
+        break;
+    }
+}
+
+void inter_value(char& val) {
+
+    while (true) {
+
+        cout << "Inter <char>: ";
+        cin >> val;
+
+        if (!check_user_input()) continue;
+
+        break;
+    }
+}
+
+void inter_value(string& val) {
+
+    while (true) {
+
+        cout << "Inter <string>: ";
+        cin >> val;
+
+        if (!check_user_input()) continue;
+
+        break;
+    }
+}
+
+void inter_value(bool& val) {
+
+    while (true) {
+
+        cout << "Inter <boll> (0/1): ";
+        cin >> val;
+
+        if (!check_user_input()) continue;
+
+        break;
+    }
+}
+
+
+int main()
+{   
+    int int_val;
+    double vouble_val;
+    char   char_val;
+    string string_val;
+    bool bool_val;    
+    
+    inter_value(int_val);
+    inter_value(vouble_val);
+    inter_value(char_val);
+    inter_value(string_val);
+    inter_value(bool_val);
+    
+    cout << "You entered: Int = " << int_val << "; double =  " << vouble_val << "; char = " << char_val << "; string = " << string_val << "; bool = " << ((bool_val) ? "true" : "false");
 }
